@@ -83,9 +83,9 @@ public class Driver extends User {
 	}
 	
 	//scans all the currently requested rides and lists the ones with the same source as one of the driver's favorite areas(scans both arraylists against eachother) and create an offer but i dont know how to retireve the currently available rides
-	public ArrayList<Ride> list(String source) {
-		
-		
-	}
+//	public ArrayList<Ride> list(String source) {
+//		
+//		
+//	}
 	
 }
