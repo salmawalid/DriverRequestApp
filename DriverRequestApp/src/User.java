@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class User {
+public abstract class User {
 	
 	
 	Scanner sc = new Scanner(System.in);
@@ -15,6 +15,10 @@ public class User {
 	
 	
 	//constructor
+	public User() {
+		
+	}
+	
 	public User(String userName, String mobNum, String email, String password) {
 		this.userName = userName;
 		this.mobNum = mobNum;
@@ -26,7 +30,7 @@ public class User {
 	//methods
 	
 	/*user is prompted to enter their data and if they leave mandatory field blank they're prompted again
-	with a warning message then later on this data should be entered into some database i guess*/
+	with a warning message then later on this data should be entered into some database */
 	public void register() {
 		System.out.println("please enter username:");
 		this.userName=sc.nextLine();

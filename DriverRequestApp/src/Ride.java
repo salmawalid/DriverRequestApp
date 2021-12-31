@@ -1,5 +1,4 @@
 
-
 public class Ride {
 	
 	private String title;
@@ -8,6 +7,7 @@ public class Ride {
 	private String destinaion; 
 	private int timeToLeave;
 	private int cost;
+	private int rating = 0;
 
 	
 	//driver creating a ride
@@ -61,6 +61,12 @@ public class Ride {
 	}
 	public void setCost(int cost) {
 		this.cost = cost;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 	
 }

@@ -8,6 +8,8 @@ public class Driver extends User {
 	private String nationalID;
 	private ArrayList<String> favoriteAreas; 
 	private boolean verified;
+	private double balance;
+	private Ride currentRide;
 	
 	Scanner scanner = new Scanner(System.in);
 	
@@ -42,7 +44,13 @@ public class Driver extends User {
 		this.nationalID = nationalID;
 	}
 	
-	
+	public Ride getCurrentRide() {
+		return currentRide;
+	}
+
+	public void setCurrentRide(Ride currentRide) {
+		this.currentRide = currentRide;
+	}
 	
 	public ArrayList<String> getFavoriteAreas() {
 		return favoriteAreas;
@@ -62,8 +70,19 @@ public class Driver extends User {
 	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
+	
+	
+	public double getBalance() {
+		return balance;
+	}
 
 
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+
+	//methods 
 	public void register() {
 		super.register();
 		System.out.println("please enter national ID:");
@@ -81,8 +100,18 @@ public class Driver extends User {
 		}
 		
 	}
+	public void endRide() {
+		this.getRideshistory().add(this.currentRide);
+		this.balance+=this.currentRide.getCost();
+		this.currentRide=null;
+	}
+
+
 	
-	//scans all the currently requested rides and lists the ones with the same source as one of the driver's favorite areas(scans both arraylists against eachother) and create an offer but i dont know how to retireve the currently available rides
+	
+	//scans all the currently requested rides and lists the ones with the same 
+	//source as one of the driver's favorite areas(scans both array lists against 
+	//each other) and create an offer but i do not know how to retrieve the currently available rides
 //	public ArrayList<Ride> list(String source) {
 //		
 //		dfvfvdfdfv
