@@ -4,7 +4,7 @@ import java.util.Scanner;
 public abstract class User {
 	
 	
-	Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 
 	
 	private String userName;
@@ -13,11 +13,6 @@ public abstract class User {
 	private String password;
 	private ArrayList<Ride> rideshistory; //both the rider and driver will have a ride history for the rides they've taken and given respectively
 	
-	
-	//constructor
-	public User() {
-		
-	}
 	
 	public User(String userName, String mobNum, String email, String password) {
 		this.userName = userName;
@@ -31,46 +26,14 @@ public abstract class User {
 	
 	/*user is prompted to enter their data and if they leave mandatory field blank they're prompted again
 	with a warning message then later on this data should be entered into some database */
-	public void register() {
-		System.out.println("please enter username:");
-		this.userName=sc.nextLine();
-		while(this.userName=="") {
-			System.out.println("USERNAME CANT BE BLANK!...please enter username");
-			this.userName=sc.nextLine();
-		}
+	public static void register(AppSystem system) {
 		
-		System.out.println("please enter password:");
-		this.password=sc.nextLine();
-		while(this.password=="") {
-			System.out.println("PASSWORD CANT BE BLANK!...please enter password");
-			this.password=sc.nextLine();
-		}
-		
-		System.out.println("please enter mobile number:");
-		this.mobNum=sc.nextLine();
-		while(this.mobNum=="") {
-			System.out.println("MOBILE NUMBER CANT BE BLANK!...please enter mobile number");
-			this.mobNum=sc.nextLine();
-		}
-		
-		System.out.println("please enter email (optional)");
-		this.email=sc.nextLine();
 		
 	}
-	public void login() {
+	public static void login(AppSystem system) {
 		
 	}
 	
-	public void RequestRide() {
-		String source;
-		String destination;
-		System.out.println("enter your pick up location");
-		source=sc.nextLine();
-		System.out.println("enter your destination");
-		destination=sc.nextLine();
-		
-		
-	}
 	
 	
 	

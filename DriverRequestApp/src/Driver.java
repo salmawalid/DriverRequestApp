@@ -19,9 +19,11 @@ public class Driver extends User {
 		this.nationalID = nationalID;
 		this.favoriteAreas = new ArrayList<>();
 		this.verified = false;
+		this.balance = 0;
 	}
 
 	// methods
+<<<<<<< HEAD
 	public void register() {
 		super.register();
 		System.out.println("please enter national ID:");
@@ -45,6 +47,118 @@ public class Driver extends User {
 		this.balance += this.currentRide.getCost();
 		this.currentRide = null;
 	}
+=======
+	public static void register(AppSystem system) {
+		
+		String usernameTemp;
+		String mobnumTemp;
+		String emailTemp;
+		String passwordTemp;
+		String drivinglicenseTempString;
+		String nationalIDTemp;
+		
+		System.out.println("please enter username:");
+		usernameTemp=sc.nextLine();
+		while(usernameTemp=="") {
+			System.out.println("USERNAME CANT BE BLANK!...please enter username");
+			usernameTemp=sc.nextLine();
+		}
+		
+		System.out.println("please enter password:");
+		passwordTemp=sc.nextLine();
+		while(passwordTemp=="") {
+			System.out.println("PASSWORD CANT BE BLANK!...please enter password");
+			passwordTemp=sc.nextLine();
+		}
+		
+		System.out.println("please enter mobile number:");
+		mobnumTemp=sc.nextLine();
+		while(mobnumTemp=="") {
+			System.out.println("MOBILE NUMBER CANT BE BLANK!...please enter mobile number");
+			mobnumTemp=sc.nextLine();
+		}
+		
+		System.out.println("please enter email (optional)");
+		emailTemp=sc.nextLine();
+		
+		System.out.println("please enter national ID:");
+		nationalIDTemp = sc.nextLine();
+		while (nationalIDTemp == "") {
+			System.out.println("NATIONAL ID CANT BE BLANK!...please enter national ID");
+			nationalIDTemp = sc.nextLine();
+		}
+
+		System.out.println("please enter driving License:");
+		drivinglicenseTempString = sc.nextLine();
+		while (drivinglicenseTempString == "") {
+			System.out.println("driving License CANT BE BLANK!...please enter driving license");
+			drivinglicenseTempString = sc.nextLine();
+		}
+		
+		Driver tempDriver = new Driver(usernameTemp, mobnumTemp, emailTemp, passwordTemp, drivinglicenseTempString, nationalIDTemp);
+		system.getDrivers().add(tempDriver);
+
+	}
+	
+	
+	public static void login(AppSystem system) {
+		String usernameTemp;
+		String passwordTemp;
+		
+		System.out.println("please enter username:");
+		usernameTemp=sc.nextLine();
+		while(usernameTemp=="") {
+			System.out.println("USERNAME CANT BE BLANK!...please enter username");
+			usernameTemp=sc.nextLine();
+		}
+		
+		System.out.println("please enter password:");
+		passwordTemp=sc.nextLine();
+		while(passwordTemp=="") {
+			System.out.println("PASSWORD CANT BE BLANK!...please enter password");
+			passwordTemp=sc.nextLine();
+		}
+		
+		for (int i = 0; i < system.getDrivers().size(); i++) {
+			if (system.getDrivers().get(i).getUserName()==usernameTemp && system.getDrivers().get(i).getPassword()==passwordTemp) {
+				system.setCurrentUser(system.getDrivers().get(i));
+				System.out.println("login successful!");
+				return;
+			}
+		}
+		System.out.println("user doesnt exist! \n type (1) to register or (2) to try logging in again ");
+		int choice = sc.nextInt();
+		if(choice == 1) {
+			Driver.register(system);
+		}else if (choice == 2) {
+			Driver.login(system);
+		}else {
+			System.out.println("please enter a valid choice!");
+		}
+	}
+	
+	
+
+	public void endRide() {
+		this.getRideshistory().add(this.currentRide);
+		this.balance += this.currentRide.getCost();
+		this.currentRide = null;
+	}
+	
+	
+	public void suggestPrice() {
+		
+	}
+
+	// scans all the currently requested rides and lists the ones with the same
+	// source as one of the driver's favorite areas(scans both array lists against
+	// each other) and create an offer but i do not know how to retrieve the
+	// currently available rides
+//		public ArrayList<Ride> list(String source) {
+//			
+//			dfvfvdfdfv
+//		}
+>>>>>>> branch 'main' of https://github.com/salmawalid/DriverRequestApp.git
 
 	public String getDrivingLicense() {
 		return drivingLicense;
@@ -94,6 +208,7 @@ public class Driver extends User {
 		this.balance = balance;
 	}
 
+<<<<<<< HEAD
 	// scans all the currently requested rides and lists the ones with the same
 	// source as one of the driver's favorite areas(scans both array lists against
 	// each other) and create an offer but i do not know how to retrieve the
@@ -103,4 +218,6 @@ public class Driver extends User {
 //		dfvfvdfdfv
 //	}
 
+=======
+>>>>>>> branch 'main' of https://github.com/salmawalid/DriverRequestApp.git
 }
