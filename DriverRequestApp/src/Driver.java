@@ -23,31 +23,7 @@ public class Driver extends User {
 	}
 
 	// methods
-<<<<<<< HEAD
-	public void register() {
-		super.register();
-		System.out.println("please enter national ID:");
-		this.nationalID = sc.nextLine();
-		while (this.nationalID == "") {
-			System.out.println("NATIONAL ID CANT BE BLANK!...please enter national ID");
-			this.nationalID = sc.nextLine();
-		}
 
-		System.out.println("please enter driving License:");
-		this.drivingLicense = sc.nextLine();
-		while (this.drivingLicense == "") {
-			System.out.println("driving License CANT BE BLANK!...please enter driving license");
-			this.drivingLicense = sc.nextLine();
-		}
-
-	}
-
-	public void endRide() {
-		this.getRideshistory().add(this.currentRide);
-		this.balance += this.currentRide.getCost();
-		this.currentRide = null;
-	}
-=======
 	public static void register(AppSystem system) {
 		
 		String usernameTemp;
@@ -97,6 +73,7 @@ public class Driver extends User {
 		
 		Driver tempDriver = new Driver(usernameTemp, mobnumTemp, emailTemp, passwordTemp, drivinglicenseTempString, nationalIDTemp);
 		system.getDrivers().add(tempDriver);
+		system.setCurrentUser(tempDriver);
 
 	}
 	
@@ -150,15 +127,8 @@ public class Driver extends User {
 		
 	}
 
-	// scans all the currently requested rides and lists the ones with the same
-	// source as one of the driver's favorite areas(scans both array lists against
-	// each other) and create an offer but i do not know how to retrieve the
-	// currently available rides
-//		public ArrayList<Ride> list(String source) {
-//			
-//			dfvfvdfdfv
-//		}
->>>>>>> branch 'main' of https://github.com/salmawalid/DriverRequestApp.git
+
+
 
 	public String getDrivingLicense() {
 		return drivingLicense;
@@ -208,16 +178,5 @@ public class Driver extends User {
 		this.balance = balance;
 	}
 
-<<<<<<< HEAD
-	// scans all the currently requested rides and lists the ones with the same
-	// source as one of the driver's favorite areas(scans both array lists against
-	// each other) and create an offer but i do not know how to retrieve the
-	// currently available rides
-//	public ArrayList<Ride> list(String source) {
-//		
-//		dfvfvdfdfv
-//	}
 
-=======
->>>>>>> branch 'main' of https://github.com/salmawalid/DriverRequestApp.git
 }

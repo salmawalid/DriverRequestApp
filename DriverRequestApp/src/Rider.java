@@ -42,6 +42,7 @@ public class Rider extends User {
 		
 		Rider tempRider = new Rider(usernameTemp,mobnumTemp,emailTemp,passwordTemp); 
 		system.getRiders().add(tempRider);
+		system.setCurrentUser(tempRider);
 		
 	}
 	
