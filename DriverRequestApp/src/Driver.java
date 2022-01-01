@@ -118,17 +118,38 @@ public class Driver extends User {
 
 	public void endRide() {
 		this.getRideshistory().add(this.currentRide);
+		currentRide.getRequestingRider().getRideshistory().add(currentRide);
 		this.balance += this.currentRide.getCost();
 		this.currentRide = null;
 	}
 	
 	
-	public void suggestPrice() {
+	public void suggestPrice(AppSystem system) {
+		ArrayList<Ride> favRides = new ArrayList<>();
+		for (int i = 0; i < system.getRequestedRides().size(); i++) {
+			if (this.favoriteAreas.contains(system.getRequestedRides().get(i).getSource())) {
+				favRides.add(system.getRequestedRides().get(i));
+			}
+		}
+		
+		for (int i = 0; i < favRides.size(); i++) {
+			System.out.println((i+1) + ") source : " + favRides.get(i).getSource() + " , destination : " + favRides.get(i).getDestinaion());
+		}
+		
+		System.out.println("please enter the number of the ride you wanna suggest a price for.");
+		int choice = sc.nextInt();
+		System.out.println("please enter the price you wanna offer.");
+		int offer = sc.nextInt();
+		favRides.get(choice-1).getOffers().add(offer);
+		favRides.get(choice-1).getOfferingDrivers().add(this);
+		favRides.get(choice-1).getRequestingRider().notifyUserPrice();
 		
 	}
 
 
-
+	public void notifyDriverAccept() {
+		System.out.println("price accepted ");
+	}
 
 	public String getDrivingLicense() {
 		return drivingLicense;

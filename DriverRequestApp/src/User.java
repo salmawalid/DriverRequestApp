@@ -28,8 +28,8 @@ public abstract class User {
 	with a warning message then later on this data should be entered into some database */
 	public static void register(AppSystem system) {
 		
-		
 	}
+	
 	public static void login(AppSystem system) {
 		
 	}
